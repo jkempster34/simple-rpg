@@ -10,7 +10,7 @@ namespace Engine.Factories
     {
         private static List<GameItem> _standardGameItems;
 
-        static ItemFactory() 
+        static ItemFactory()
         {
             _standardGameItems = new List<GameItem>();
 
@@ -21,6 +21,11 @@ namespace Engine.Factories
         public static GameItem CreateGameItem(int itemTypeId)
         {
             GameItem standardItem = _standardGameItems.FirstOrDefault(item => item.ItemTypeID == itemTypeId);
+            if (standardItem != null)
+            {
+                return standardItem.Clone();
+            }
+            return null;
         }
     }
 }

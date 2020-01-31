@@ -14,5 +14,10 @@ namespace Engine.Models
             MinimumDamage = minDamage;
             MaximumDamage = maxDamaage;
         }
+
+        public new Weapon Clone()
+        {
+            return new Weapon(ItemTypeID, Name, Price, MinimumDamage, MaximumDamage);
+        }
     }
 }
